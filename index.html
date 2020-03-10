@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input v-model="song" type="text">
+    <h1>{{song}}</h1>
+    <p>《{{album.name}}》是{{song}}2005年11月发行的专辑</p>
+    <p>主打歌为{{album.theme}}</p>
+    <p>作词人为{{singer}}等人。</p>
+    为你弹奏肖邦的{{album.theme}}
+    <p>{{sum}}</p>
+</div>
+</body>
+<script src="./mvvm.js"></script>
+<script>
+    let mvvm = new Mvvm({
+        el: '#app',
+        data: {
+            song:'asd',
+            singer:'周杰伦',
+            album:{
+                name:'稻香',
+                theme:'xxxx'
+            },
+            a:1,
+            b:3
+        },
+        computed: {
+            sum() {
+                return this.a + this.b;
+            },
+            noop() {}
+        },
+        mounted() {
+            setTimeout(() => {
+                console.log('所有事情都搞定了');
+            }, 1000);
+        }
+    })
+</script>
+</html>
